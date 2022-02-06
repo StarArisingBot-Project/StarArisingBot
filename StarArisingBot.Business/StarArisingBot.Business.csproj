@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>SAB.Business</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+	 <PackageReference Include="DSharpPlus" Version="4.2.0-nightly-01044" />
+	 <PackageReference Include="DSharpPlus.CommandsNext" Version="4.2.0-nightly-01044" />
+	 <PackageReference Include="DSharpPlus.Interactivity" Version="4.2.0-nightly-01044" />
+	 <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.0.1" />
+	 <PackageReference Include="Microsoft.CodeAnalysis.Scripting" Version="4.0.1" />
+	 <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	 <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StarArisingBot.Database\StarArisingBot.Database.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<!--Main-->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyName>SAB</AssemblyName>
+    <RootNamespace>SAB</RootNamespace>
+    <StartupObject></StartupObject>
+  </PropertyGroup>
+
+	<!--Package Reference-->
+	<ItemGroup>
+		<PackageReference Include="DSharpPlus" Version="4.2.0-nightly-01064" />
+		<PackageReference Include="DSharpPlus.CommandsNext" Version="4.2.0-nightly-01064" />
+		<PackageReference Include="DSharpPlus.Interactivity" Version="4.2.0-nightly-01064" />
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.1.0-3.final" />
+		<PackageReference Include="Microsoft.CodeAnalysis.Scripting" Version="4.1.0-3.final" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="System.Drawing.Common" Version="6.0.2-mauipre.1.22054.8" />
+	</ItemGroup>
+
+	<!--Important Files-->
+	<ItemGroup>
+		<None Update="SAB.System\Files\BotToken.json" CopyToOutputDirectory="PreserveNewest" />
+	</ItemGroup>
+
+	<!--Folders-->
+	<ItemGroup>
+	  <Folder Include="SAB.Bot\SAB.Bot.Commands\Commands\Minigames\" />
+	  <Folder Include="SAB.Bot\SAB.Bot.Minigames\Minigames\" />
+	  <Folder Include="SAB.Bot\SAB.Bot.Minigames\Simulators\" />
+	  <Folder Include="SAB.Controllers\" />
+	  <Folder Include="SAB.Managers\Users\" />
+	</ItemGroup>
+
+	<!--Projects-->
+	<ItemGroup>
+	  <ProjectReference Include="..\StarArisingBot.Business\StarArisingBot.Business.csproj" />
+	</ItemGroup>
+</Project>
