@@ -36,10 +36,24 @@ namespace SAB.Managers
             await StartMinigamesModules();
 
             //==========================//
+            MinigameConsoleDebug();
+        }
+
+        private static void MinigameConsoleDebug()
+        {
+            string minigames = "";
             foreach (SABMinigameInstance minigame in MinigameInstances)
             {
-                Console.WriteLine($"{minigame.MinigameModule.Name}");
+                minigames += $"> {minigame.MinigameModule.Name} \n";
             }
+
+            Console.WriteLine($"\n=================\n" +
+
+                              $"INSTANCES LOADED: \n\n" +
+
+                              $"{minigames}" +
+
+                              $"\n=================\n");
         }
 
         private static Task GetMinigamesInstances()

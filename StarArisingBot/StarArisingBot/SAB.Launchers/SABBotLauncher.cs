@@ -23,7 +23,7 @@ namespace SAB.Launchers
         {
             //Bot Token
             string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-            BotTokenDeserialize configJson = JsonConvert.DeserializeObject<BotTokenDeserialize>(File.ReadAllText(@$"{projectPath}\SAB.System\Files\BotToken.json"));
+            BotTokenDeserialize configJson = JsonConvert.DeserializeObject<BotTokenDeserialize>(File.ReadAllText(@$"{projectPath}\StarArisingBot\SAB.System\Files\BotToken.json"));
 
             //===================================================//
 

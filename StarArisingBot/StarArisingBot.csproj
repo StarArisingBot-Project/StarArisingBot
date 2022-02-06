@@ -22,20 +22,11 @@
 
 	<!--Important Files-->
 	<ItemGroup>
-		<None Update="SAB.System\Files\BotToken.json" CopyToOutputDirectory="PreserveNewest" />
+		<None Update=".\StarArisingBot\SAB.System\Files\BotToken.json" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 
 	<!--Folders-->
 	<ItemGroup>
-	  <Folder Include="SAB.Bot\SAB.Bot.Commands\Commands\Minigames\" />
-	  <Folder Include="SAB.Bot\SAB.Bot.Minigames\Minigames\" />
-	  <Folder Include="SAB.Bot\SAB.Bot.Minigames\Simulators\" />
-	  <Folder Include="SAB.Controllers\" />
-	  <Folder Include="SAB.Managers\Users\" />
-	</ItemGroup>
-
-	<!--Projects-->
-	<ItemGroup>
-	  <ProjectReference Include="..\StarArisingBot.Business\StarArisingBot.Business.csproj" />
+	  <Folder Include="StarArisingBot.Database\" />
 	</ItemGroup>
 </Project>

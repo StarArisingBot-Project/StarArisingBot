@@ -5,10 +5,6 @@ VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StarArisingBot", "StarArisingBot\StarArisingBot.csproj", "{16A18ACF-ADDB-492D-9497-E73923C67477}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarArisingBot.Business", "StarArisingBot.Business\StarArisingBot.Business.csproj", "{82E52420-1681-4C0E-BB7A-C2B562196A55}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarArisingBot.Database", "StarArisingBot.Database\StarArisingBot.Database.csproj", "{43156EA2-4A01-4853-968F-EE3423E93C98}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,14 +15,6 @@ Global
 		{16A18ACF-ADDB-492D-9497-E73923C67477}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16A18ACF-ADDB-492D-9497-E73923C67477}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16A18ACF-ADDB-492D-9497-E73923C67477}.Release|Any CPU.Build.0 = Release|Any CPU
-		{82E52420-1681-4C0E-BB7A-C2B562196A55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82E52420-1681-4C0E-BB7A-C2B562196A55}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82E52420-1681-4C0E-BB7A-C2B562196A55}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82E52420-1681-4C0E-BB7A-C2B562196A55}.Release|Any CPU.Build.0 = Release|Any CPU
-		{43156EA2-4A01-4853-968F-EE3423E93C98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{43156EA2-4A01-4853-968F-EE3423E93C98}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{43156EA2-4A01-4853-968F-EE3423E93C98}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{43156EA2-4A01-4853-968F-EE3423E93C98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
