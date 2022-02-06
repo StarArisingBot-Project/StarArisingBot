@@ -20,13 +20,16 @@
 		<PackageReference Include="System.Drawing.Common" Version="6.0.2-mauipre.1.22054.8" />
 	</ItemGroup>
 
+	<!--Projects-->
+	<ItemGroup>
+	  <ProjectReference Include="..\StarArisingBot.Business\StarArisingBot.Business.csproj" />
+	</ItemGroup>
+	
+
 	<!--Important Files-->
 	<ItemGroup>
-		<None Update=".\StarArisingBot\SAB.System\Files\BotToken.json" CopyToOutputDirectory="PreserveNewest" />
+		<None Update=".\SAB.System\Files\BotToken.json" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 
 	<!--Folders-->
-	<ItemGroup>
-	  <Folder Include="StarArisingBot.Database\" />
-	</ItemGroup>
 </Project>
