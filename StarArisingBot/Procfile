@@ -1,1 +1,1 @@
-﻿worker: cd $HOME/heroku_output && ./StarArisingBot
+﻿web: cd $HOME/heroku_output/app/StarArisingBot/StarArisingBot/Program.cs
