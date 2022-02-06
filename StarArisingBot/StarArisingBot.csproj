@@ -6,7 +6,7 @@
     <TargetFramework>net5.0</TargetFramework>
     <AssemblyName>SAB</AssemblyName>
     <RootNamespace>SAB</RootNamespace>
-    <StartupObject></StartupObject>
+    <StartupObject>SAB.System.Program</StartupObject>
   </PropertyGroup>
 
 	<!--Package Reference-->
