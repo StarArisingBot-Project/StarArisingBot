@@ -19,6 +19,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="SAB.System\" />
+	  <Folder Include="SAB.System\DeserializeObjects\" />
 	</ItemGroup>
 </Project>

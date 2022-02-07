@@ -28,12 +28,11 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\StarArisingBot.Business\StarArisingBot.Business.csproj" />
 	</ItemGroup>
+	
 	<ItemGroup>
 	  <Folder Include="SAB.System\" />
+	  <Folder Include="SAB.System\Files\" />
 	</ItemGroup>
-	
-
-	<!--Important Files-->
 
 	<!--Folders-->
 </Project>

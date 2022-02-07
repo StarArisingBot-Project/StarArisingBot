@@ -8,47 +8,49 @@ using Newtonsoft.Json;
 using SAB.Bot.Commands;
 using SAB.Behaviors;
 using SAB.Experimental;
-using SAB.Business.System;
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using StarArisingBot.Business.System;
 
 namespace SAB.Launchers
 {
     public static class SABBotLauncher
     {
+        private static SABBotTokens botTokens = new();
+
         //====================//
         //BOT SETTINGS ACTIONS//
         public static async Task<DiscordClient> StartBotSettingsAsync()
         {
-            Console.WriteLine("=> Inciando  StartBotSettingsAsync()");
-            Console.WriteLine("=> Pegando Token");
+            string root = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            string dotenv = Path.Combine(root, ".env");
+            DotEnv.Load(dotenv);
 
-            //Bot Token
-            string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-            BotTokenDeserialize configJson = JsonConvert.DeserializeObject<BotTokenDeserialize>(File.ReadAllText(@$"{projectPath}\SAB.System\Files\BotToken.json"));
+            botTokens = new SABBotTokens()
+            {
+                BotToken = Environment.GetEnvironmentVariable("BOT_TOKEN")
+            };
 
-            Console.WriteLine("=> Token pego");
+            Console.WriteLine(dotenv);
+
             //===================================================//
 
             DiscordClient client;
-            client = await BuildClient(configJson);
-            client = await BuildCommands(client, configJson);
+            client = await BuildClient();
+            client = await BuildCommands(client);
             client = await BuildInteractivity(client);
 
             //===================================================//
 
-            Console.WriteLine("=> client pronto.");
             return await Task.FromResult(client);
         }
 
-        private static async Task<DiscordClient> BuildClient(BotTokenDeserialize botToken)
+        private static async Task<DiscordClient> BuildClient()
         {
-            Console.WriteLine("=> Iniciando client");
-
             DiscordConfiguration ClientConfig = new()
             {
-                Token = botToken.Token,
+                Token = botTokens.BotToken,
                 TokenType = TokenType.Bot,
                 AutoReconnect = true,
                 MinimumLogLevel = LogLevel.Debug,
@@ -72,18 +74,14 @@ namespace SAB.Launchers
             };
             DiscordClient client = new(ClientConfig);
 
-            Console.WriteLine("=> Client iniciado");
             return await Task.FromResult(client);
         }
-        private static async Task<DiscordClient> BuildCommands(DiscordClient client, BotTokenDeserialize botToken)
+        private static async Task<DiscordClient> BuildCommands(DiscordClient client)
         {
-            Console.WriteLine("=> Iniciando comandos.");
-
             SABCommandsBehavior commandsExecutionController = new SABCommandsBehavior();
-
             CommandsNextConfiguration commandsConfig = new()
             {
-                StringPrefixes = botToken.Prefix,
+                StringPrefixes = new string[] { ":>", "=>"},
 
                 EnableMentionPrefix = true,
                 EnableDms = true,
@@ -91,7 +89,6 @@ namespace SAB.Launchers
                 IgnoreExtraArguments = false,
                 CommandExecutor = commandsExecutionController,
             };
-
             CommandsNextExtension commandsNext = client.UseCommandsNext(commandsConfig);
 
             commandsExecutionController.Client = client;
@@ -111,12 +108,10 @@ namespace SAB.Launchers
             commandsNext.RegisterCommands<TestCommands>();
             #endregion
 
-            Console.WriteLine("=> Termino de comandos.");
             return await Task.FromResult(client);
         }
         private static async Task<DiscordClient> BuildInteractivity(DiscordClient client)
         {
-            Console.WriteLine("=> Iniciando interatividade.");
             client.UseInteractivity(new InteractivityConfiguration()
             {
                 Timeout = TimeSpan.FromSeconds(30),
@@ -125,7 +120,6 @@ namespace SAB.Launchers
                 ButtonBehavior = ButtonPaginationBehavior.Disable,
             });
 
-            Console.WriteLine("=> termino interatividade.");
             return await Task.FromResult(client);
         }
 
