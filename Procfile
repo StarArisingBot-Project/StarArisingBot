@@ -1,1 +1,1 @@
-worker: cd $HOME/heroku_output && ./star-arising-bot
+worker: cd $HOME/heroku_output && ./StarArisingBot

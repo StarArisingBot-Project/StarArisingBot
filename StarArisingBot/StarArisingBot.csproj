@@ -4,7 +4,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>SAB</AssemblyName>
+    <AssemblyName>StarArisingBot</AssemblyName>
     <RootNamespace>SAB</RootNamespace>
     <StartupObject>SAB.System.Program</StartupObject>
   </PropertyGroup>
