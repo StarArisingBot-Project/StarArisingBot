@@ -1,5 +1,6 @@
 ﻿using DSharpPlus;
 using SAB.Launchers;
+using System;
 using System.Threading.Tasks;
 
 namespace SAB.System
@@ -10,8 +11,13 @@ namespace SAB.System
 
         public async Task RunAsync()
         {
+            Console.WriteLine("=> Inciando RunAsync()");
+
             CurrentClient = await SABBotLauncher.StartBotSettingsAsync();
             await SABEventsLauncher.StartDiscordEventsAsync(CurrentClient);
+
+            Console.WriteLine("=> eventos pronto.");
+            Console.WriteLine("=> iniciando bot.");
 
             //==================================//
 

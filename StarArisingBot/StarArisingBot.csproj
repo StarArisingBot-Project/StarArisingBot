@@ -9,6 +9,10 @@
     <StartupObject>SAB.System.Program</StartupObject>
   </PropertyGroup>
 
+	<PropertyGroup>
+		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+	</PropertyGroup>
+
 	<!--Package Reference-->
 	<ItemGroup>
 		<PackageReference Include="DSharpPlus" Version="4.2.0-nightly-01064" />

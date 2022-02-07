@@ -21,10 +21,14 @@ namespace SAB.Launchers
         //BOT SETTINGS ACTIONS//
         public static async Task<DiscordClient> StartBotSettingsAsync()
         {
+            Console.WriteLine("=> Inciando  StartBotSettingsAsync()");
+            Console.WriteLine("=> Pegando Token");
+
             //Bot Token
             string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
             BotTokenDeserialize configJson = JsonConvert.DeserializeObject<BotTokenDeserialize>(File.ReadAllText(@$"{projectPath}\SAB.System\Files\BotToken.json"));
 
+            Console.WriteLine("=> Token pego");
             //===================================================//
 
             DiscordClient client;
@@ -34,11 +38,14 @@ namespace SAB.Launchers
 
             //===================================================//
 
+            Console.WriteLine("=> client pronto.");
             return await Task.FromResult(client);
         }
 
         private static async Task<DiscordClient> BuildClient(BotTokenDeserialize botToken)
         {
+            Console.WriteLine("=> Iniciando client");
+
             DiscordConfiguration ClientConfig = new()
             {
                 Token = botToken.Token,
@@ -65,10 +72,13 @@ namespace SAB.Launchers
             };
             DiscordClient client = new(ClientConfig);
 
+            Console.WriteLine("=> Client iniciado");
             return await Task.FromResult(client);
         }
         private static async Task<DiscordClient> BuildCommands(DiscordClient client, BotTokenDeserialize botToken)
         {
+            Console.WriteLine("=> Iniciando comandos.");
+
             SABCommandsBehavior commandsExecutionController = new SABCommandsBehavior();
 
             CommandsNextConfiguration commandsConfig = new()
@@ -101,10 +111,12 @@ namespace SAB.Launchers
             commandsNext.RegisterCommands<TestCommands>();
             #endregion
 
+            Console.WriteLine("=> Termino de comandos.");
             return await Task.FromResult(client);
         }
         private static async Task<DiscordClient> BuildInteractivity(DiscordClient client)
         {
+            Console.WriteLine("=> Iniciando interatividade.");
             client.UseInteractivity(new InteractivityConfiguration()
             {
                 Timeout = TimeSpan.FromSeconds(30),
@@ -113,6 +125,7 @@ namespace SAB.Launchers
                 ButtonBehavior = ButtonPaginationBehavior.Disable,
             });
 
+            Console.WriteLine("=> termino interatividade.");
             return await Task.FromResult(client);
         }
 
