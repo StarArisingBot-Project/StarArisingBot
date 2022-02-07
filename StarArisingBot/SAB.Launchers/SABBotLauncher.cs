@@ -21,10 +21,15 @@ namespace SAB.Launchers
         //BOT SETTINGS ACTIONS//
         public static async Task<DiscordClient> StartBotSettingsAsync()
         {
+            //Bot Token
+            string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
+            BotTokenDeserialize configJson = JsonConvert.DeserializeObject<BotTokenDeserialize>(File.ReadAllText(@$"{projectPath}\SAB.System\Files\BotToken.json"));
+
             //===================================================//
+
             DiscordClient client;
-            client = await BuildClient();
-            client = await BuildCommands(client);
+            client = await BuildClient(configJson);
+            client = await BuildCommands(client, configJson);
             client = await BuildInteractivity(client);
 
             //===================================================//
@@ -32,11 +37,11 @@ namespace SAB.Launchers
             return await Task.FromResult(client);
         }
 
-        private static async Task<DiscordClient> BuildClient()
+        private static async Task<DiscordClient> BuildClient(BotTokenDeserialize botToken)
         {
             DiscordConfiguration ClientConfig = new()
             {
-                Token = Environment.GetEnvironmentVariable("BOT_TOKEN"),
+                Token = botToken.Token,
                 TokenType = TokenType.Bot,
                 AutoReconnect = true,
                 MinimumLogLevel = LogLevel.Debug,
@@ -62,13 +67,13 @@ namespace SAB.Launchers
 
             return await Task.FromResult(client);
         }
-        private static async Task<DiscordClient> BuildCommands(DiscordClient client)
+        private static async Task<DiscordClient> BuildCommands(DiscordClient client, BotTokenDeserialize botToken)
         {
             SABCommandsBehavior commandsExecutionController = new SABCommandsBehavior();
 
             CommandsNextConfiguration commandsConfig = new()
             {
-                StringPrefixes = new string[] { ":>", "=>" },
+                StringPrefixes = botToken.Prefix,
 
                 EnableMentionPrefix = true,
                 EnableDms = true,
