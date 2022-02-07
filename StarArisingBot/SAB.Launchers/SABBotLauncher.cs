@@ -23,7 +23,7 @@ namespace SAB.Launchers
         //BOT SETTINGS ACTIONS//
         public static async Task<DiscordClient> StartBotSettingsAsync()
         {
-            string root = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+            string root = Directory.GetCurrentDirectory();
             string dotenv = Path.Combine(root, ".env");
             DotEnv.Load(dotenv);
 
