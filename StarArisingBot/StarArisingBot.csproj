@@ -24,12 +24,12 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\StarArisingBot.Business\StarArisingBot.Business.csproj" />
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="SAB.System\" />
+	</ItemGroup>
 	
 
 	<!--Important Files-->
-	<ItemGroup>
-		<None Update=".\SAB.System\Files\BotToken.json" CopyToOutputDirectory="PreserveNewest" />
-	</ItemGroup>
 
 	<!--Folders-->
 </Project>

@@ -21,15 +21,10 @@ namespace SAB.Launchers
         //BOT SETTINGS ACTIONS//
         public static async Task<DiscordClient> StartBotSettingsAsync()
         {
-            //Bot Token
-            string projectPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-            BotTokenDeserialize configJson = JsonConvert.DeserializeObject<BotTokenDeserialize>(File.ReadAllText(@$"{projectPath}\SAB.System\Files\BotToken.json"));
-
             //===================================================//
-
             DiscordClient client;
-            client = await BuildClient(configJson);
-            client = await BuildCommands(client, configJson);
+            client = await BuildClient();
+            client = await BuildCommands(client);
             client = await BuildInteractivity(client);
 
             //===================================================//
@@ -37,11 +32,11 @@ namespace SAB.Launchers
             return await Task.FromResult(client);
         }
 
-        private static async Task<DiscordClient> BuildClient(BotTokenDeserialize botToken)
+        private static async Task<DiscordClient> BuildClient()
         {
             DiscordConfiguration ClientConfig = new()
             {
-                Token = botToken.Token,
+                Token = Environment.GetEnvironmentVariable("BOT_TOKEN"),
                 TokenType = TokenType.Bot,
                 AutoReconnect = true,
                 MinimumLogLevel = LogLevel.Debug,
@@ -67,13 +62,13 @@ namespace SAB.Launchers
 
             return await Task.FromResult(client);
         }
-        private static async Task<DiscordClient> BuildCommands(DiscordClient client, BotTokenDeserialize botToken)
+        private static async Task<DiscordClient> BuildCommands(DiscordClient client)
         {
             SABCommandsBehavior commandsExecutionController = new SABCommandsBehavior();
 
             CommandsNextConfiguration commandsConfig = new()
             {
-                StringPrefixes = botToken.Prefix,
+                StringPrefixes = new string[] { ":>", "=>" },
 
                 EnableMentionPrefix = true,
                 EnableDms = true,

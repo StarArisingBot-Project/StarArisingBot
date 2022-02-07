@@ -4,7 +4,7 @@
     {
         public static void Main(string[] args)
         {
-            StartBot bot = new StartBot();
+            Startup bot = new Startup();
             bot.RunAsync().GetAwaiter().GetResult();
         }
     }

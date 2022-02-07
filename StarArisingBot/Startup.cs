@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace SAB.System
 {
-    public class StartBot
+    public class Startup
     {
         private DiscordClient CurrentClient { get; set; }
 

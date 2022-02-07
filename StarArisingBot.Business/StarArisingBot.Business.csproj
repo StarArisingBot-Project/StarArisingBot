@@ -17,4 +17,8 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\StarArisingBot.Database\StarArisingBot.Database.csproj" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="SAB.System\" />
+	</ItemGroup>
 </Project>
