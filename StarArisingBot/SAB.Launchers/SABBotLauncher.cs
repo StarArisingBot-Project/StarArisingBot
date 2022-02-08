@@ -12,6 +12,8 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using StarArisingBot.Business.System;
+using StarArisingBot.Minigames.HungerGames;
+using StarArisingBot.MinigameEngine;
 
 namespace SAB.Launchers
 {
@@ -32,10 +34,8 @@ namespace SAB.Launchers
                 BotToken = Environment.GetEnvironmentVariable("BOT_TOKEN")
             };
 
-            Console.WriteLine(dotenv);
-
             //===================================================//
-
+            
             DiscordClient client;
             client = await BuildClient();
             client = await BuildCommands(client);
@@ -95,6 +95,7 @@ namespace SAB.Launchers
             commandsExecutionController.CommandsNext = commandsNext;
 
             #region Register Commands
+            //==================//
             //Especial Commands
             commandsNext.RegisterCommands<EvalCommands>();
 
@@ -102,10 +103,18 @@ namespace SAB.Launchers
             commandsNext.RegisterCommands<UtilitiesCommands>();
             commandsNext.RegisterCommands<InteractionCommands>();
 
-            //Minigames Commands
-
             //Experimental
             commandsNext.RegisterCommands<TestCommands>();
+            //==================//
+            #endregion
+            #region Register Minigames
+            //==================//
+            //Minigames
+            commandsNext.RegisterCommands<HGCommands>();
+
+            //Simulators
+
+            //==================//
             #endregion
 
             return await Task.FromResult(client);

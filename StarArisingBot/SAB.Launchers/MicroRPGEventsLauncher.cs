@@ -3,6 +3,8 @@ using DSharpPlus.EventArgs;
 using SAB.Managers;
 using System;
 using System.Threading.Tasks;
+using StarArisingBot.MinigameEngine;
+using StarArisingBot.Minigames.HungerGames;
 
 namespace SAB.Launchers
 {
@@ -31,11 +33,14 @@ namespace SAB.Launchers
                 Console.WriteLine(@"\\ BOT READY //");
             }
 
-
             //Bot Components Start
             private static async Task StartManagers(DiscordClient client)
             {
-                await SABMinigameInstanceManager.StartAsync(client);
+                //Minigame Instance
+                await MinigameInstanceClient.StartAsync(client);
+                MinigameInstanceClient.RegisterMinigameModule<HGMinigame>();
+
+                //Discord Activity
                 await SABDiscordActivityManager.StartAsync(client).ConfigureAwait(false);
             }
         }

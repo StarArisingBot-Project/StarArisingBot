@@ -15,12 +15,13 @@
 
 	<!--Package Reference-->
 	<ItemGroup>
-		<PackageReference Include="DSharpPlus" Version="4.2.0-nightly-01064" />
-		<PackageReference Include="DSharpPlus.CommandsNext" Version="4.2.0-nightly-01064" />
-		<PackageReference Include="DSharpPlus.Interactivity" Version="4.2.0-nightly-01064" />
+		<PackageReference Include="DSharpPlus" Version="4.2.0-nightly-01067" />
+		<PackageReference Include="DSharpPlus.CommandsNext" Version="4.2.0-nightly-01067" />
+		<PackageReference Include="DSharpPlus.Interactivity" Version="4.2.0-nightly-01067" />
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.1.0-3.final" />
 		<PackageReference Include="Microsoft.CodeAnalysis.Scripting" Version="4.1.0-3.final" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="Starciad.SABMinigameEngine" Version="1.0.3" />
 		<PackageReference Include="System.Drawing.Common" Version="6.0.2-mauipre.1.22054.8" />
 	</ItemGroup>
 
@@ -30,8 +31,16 @@
 	</ItemGroup>
 	
 	<ItemGroup>
+	  <Folder Include="SAB.Bot\SAB.Bot.Minigames\Minigames\" />
+	  <Folder Include="SAB.Managers\Instances\" />
 	  <Folder Include="SAB.System\" />
 	  <Folder Include="SAB.System\Files\" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <Reference Include="HungerGamesMinigame">
+	    <HintPath>SAB.Bot\SAB.Bot.Minigames\Simulators\HungerGamesMinigame.dll</HintPath>
+	  </Reference>
 	</ItemGroup>
 
 	<!--Folders-->
