@@ -3,6 +3,9 @@ using DSharpPlus.CommandsNext.Attributes;
 using SAB.Managers;
 using System.Threading.Tasks;
 using StarArisingBot.MinigameEngine;
+using DSharpPlus.Entities;
+using DSharpPlus;
+using DSharpPlus.Interactivity.Extensions;
 
 namespace SAB.Experimental
 {

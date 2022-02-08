@@ -9,14 +9,21 @@ namespace SAB.Experimental
 {
     public class TestMinigame : MinigameModule
     {
+        protected override async Task OnStarted(params object[] minigameParams)
+        {
+            var message = await Context.RespondAsync("Reação");
+            await message.CreateReactionAsync(DiscordEmoji.FromName(Client, ":star:"));
+
+            var result = await message.WaitForReactionAsync(Context.User);
+            if (!result.TimedOut)
+            {
+                await Context.RespondAsync("Clicou");
+            }
+        }
+
         protected override Task OnFinalized()
         {
             throw new NotImplementedException();
-        }
-
-        protected override async Task OnStarted(params object[] minigameParams)
-        {
-            await Context.Channel.SendMessageAsync($"**Instancia Iniciada**");
         }
     }
 }

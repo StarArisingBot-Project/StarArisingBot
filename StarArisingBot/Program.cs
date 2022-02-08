@@ -6,8 +6,7 @@ namespace SAB.System
     {
         public static void Main(string[] args)
         {
-            Startup bot = new Startup();
-            bot.RunAsync().GetAwaiter().GetResult();
+            new Startup().RunAsync().GetAwaiter().GetResult();
         }
     }
 }

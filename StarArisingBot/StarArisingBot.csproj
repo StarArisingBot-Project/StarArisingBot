@@ -31,7 +31,6 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-	  <Folder Include="SAB.Bot\SAB.Bot.Minigames\Minigames\" />
 	  <Folder Include="SAB.Managers\Instances\" />
 	  <Folder Include="SAB.System\" />
 	  <Folder Include="SAB.System\Files\" />

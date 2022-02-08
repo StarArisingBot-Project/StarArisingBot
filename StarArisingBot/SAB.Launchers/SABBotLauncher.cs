@@ -37,9 +37,11 @@ namespace SAB.Launchers
             //===================================================//
             
             DiscordClient client;
+
             client = await BuildClient();
             client = await BuildCommands(client);
             client = await BuildInteractivity(client);
+                     await BuildMinigames(client);
 
             //===================================================//
 
@@ -78,7 +80,6 @@ namespace SAB.Launchers
         }
         private static async Task<DiscordClient> BuildCommands(DiscordClient client)
         {
-            SABCommandsBehavior commandsExecutionController = new SABCommandsBehavior();
             CommandsNextConfiguration commandsConfig = new()
             {
                 StringPrefixes = new string[] { ":>", "=>"},
@@ -87,14 +88,12 @@ namespace SAB.Launchers
                 EnableDms = true,
                 CaseSensitive = false,
                 IgnoreExtraArguments = false,
-                CommandExecutor = commandsExecutionController,
             };
+
             CommandsNextExtension commandsNext = client.UseCommandsNext(commandsConfig);
 
-            commandsExecutionController.Client = client;
-            commandsExecutionController.CommandsNext = commandsNext;
-
             #region Register Commands
+
             //==================//
             //Especial Commands
             commandsNext.RegisterCommands<EvalCommands>();
@@ -105,16 +104,9 @@ namespace SAB.Launchers
 
             //Experimental
             commandsNext.RegisterCommands<TestCommands>();
+            commandsNext.RegisterCommands<MinigameCommand>();
             //==================//
-            #endregion
-            #region Register Minigames
-            //==================//
-            //Minigames
-            commandsNext.RegisterCommands<HGCommands>();
 
-            //Simulators
-
-            //==================//
             #endregion
 
             return await Task.FromResult(client);
@@ -126,10 +118,20 @@ namespace SAB.Launchers
                 Timeout = TimeSpan.FromSeconds(30),
 
                 ResponseBehavior = InteractionResponseBehavior.Ack,
-                ButtonBehavior = ButtonPaginationBehavior.Disable,
             });
 
             return await Task.FromResult(client);
+        }
+        private static async Task BuildMinigames(DiscordClient client)
+        {
+            await MinigameInstanceClient.StartAsync(client);
+            var commandsNext = client.GetCommandsNext();
+
+            //Minigame Commands
+            commandsNext.RegisterCommands<HGCommands>();
+
+            //Minigame Register
+            MinigameInstanceClient.RegisterMinigameModule<HGMinigame>();
         }
 
         //====================//

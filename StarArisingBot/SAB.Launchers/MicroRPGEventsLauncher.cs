@@ -36,10 +36,6 @@ namespace SAB.Launchers
             //Bot Components Start
             private static async Task StartManagers(DiscordClient client)
             {
-                //Minigame Instance
-                await MinigameInstanceClient.StartAsync(client);
-                MinigameInstanceClient.RegisterMinigameModule<HGMinigame>();
-
                 //Discord Activity
                 await SABDiscordActivityManager.StartAsync(client).ConfigureAwait(false);
             }
