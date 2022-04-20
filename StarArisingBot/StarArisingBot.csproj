@@ -40,6 +40,9 @@
 	  <Reference Include="HungerGamesMinigame">
 	    <HintPath>SAB.Bot\SAB.Bot.Minigames\Simulators\HungerGamesMinigame.dll</HintPath>
 	  </Reference>
+	  <Reference Include="MinigamesCollection">
+	    <HintPath>SAB.Bot\SAB.Bot.Minigames\MinigamesCollection.dll</HintPath>
+	  </Reference>
 	</ItemGroup>
 
 	<!--Folders-->
