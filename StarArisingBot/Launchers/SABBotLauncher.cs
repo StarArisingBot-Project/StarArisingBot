@@ -6,7 +6,6 @@ using DSharpPlus.Interactivity.Extensions;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using SAB.Bot.Commands;
-using SAB.Behaviors;
 using SAB.Experimental;
 using System;
 using System.IO;
@@ -35,7 +34,7 @@ namespace SAB.Launchers
             };
 
             //===================================================//
-            
+
             DiscordClient client;
 
             client = await BuildClient();
@@ -82,7 +81,7 @@ namespace SAB.Launchers
         {
             CommandsNextConfiguration commandsConfig = new()
             {
-                StringPrefixes = new string[] { ":>", "=>"},
+                StringPrefixes = new string[] { ":>", "=>" },
 
                 EnableMentionPrefix = true,
                 EnableDms = true,

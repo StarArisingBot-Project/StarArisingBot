@@ -22,7 +22,7 @@ namespace SAB.Launchers
             return Task.CompletedTask;
         }
 
-        private class DiscordEvents
+        private static class DiscordEvents
         {
             //Discord Events
             public static async Task ClientReady(DiscordClient sender, ReadyEventArgs e)

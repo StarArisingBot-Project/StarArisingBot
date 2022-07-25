@@ -13,7 +13,6 @@ namespace SAB.Managers
         {
                 new DiscordActivity("Pessoas usando :>Help para saber meus comandos.", ActivityType.ListeningTo),
                 new DiscordActivity("Meu MiniGame :>RPGStart.", ActivityType.Playing),
-                new DiscordActivity("Meu jogo favorito: Rogue Forest!", ActivityType.Playing),
                 new DiscordActivity("Precisando de ajuda? Meu criador é o Starciad#0381!"),
                 new DiscordActivity($"Estou na versão {SABApplication.Version}!", ActivityType.Watching),
                 new DiscordActivity("Pessoas usando o :>Daily.", ActivityType.ListeningTo),
