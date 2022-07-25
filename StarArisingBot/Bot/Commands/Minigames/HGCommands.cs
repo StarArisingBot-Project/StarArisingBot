@@ -24,7 +24,7 @@ namespace SAB.Bot.Commands
                 AuthorType = MinigameSessionAuthorType.Guild,
                 InvokeType = MinigameSessionInvokeType.Guild,
             };
-            if (await MinigameInstanceClient.GetInstanceAsync(typeof(HGMinigame)).Result.GetSessionAsync(ctx.Guild.Id) != null)
+            if (await MinigameInstanceClient.GetInstanceAsync<HGMinigame>().Result.GetSessionAsync(ctx.Guild.Id) != null)
             {
                 await ctx.RespondAsync($"<@{ctx.User.Id}> **JÁ ESTÁ OCORRENDO UM HUNGER GAMES NO SERVIDOR, ESPERE TERMINAR ANTES DE COMEÇAR OUTRO**");
                 return;
@@ -47,7 +47,7 @@ namespace SAB.Bot.Commands
                               "*Clique em um dos botões abaixo para continuar.*",
                 Color = DiscordColor.Green,
             });
-            actionMenuMessage.AddComponents(new DiscordComponent[] { 
+            actionMenuMessage.AddComponents(new DiscordComponent[] {
                 new DiscordButtonComponent(ButtonStyle.Primary, "all_action", "All", false, new DiscordComponentEmoji(DiscordEmoji.FromName(ctx.Client, ":zero:"))),
                 new DiscordButtonComponent(ButtonStyle.Primary, "members_action", "Members", false, new DiscordComponentEmoji(DiscordEmoji.FromName(ctx.Client, ":one:"))),
                 new DiscordButtonComponent(ButtonStyle.Primary, "bots_action", "Bots", false, new DiscordComponentEmoji(DiscordEmoji.FromName(ctx.Client, ":two:"))),
@@ -67,17 +67,17 @@ namespace SAB.Bot.Commands
                 if (buttonsResult.Result.Id == "all_action")
                 {
                     await SendStartMessage();
-                    await MinigameInstanceClient.GetInstanceAsync(typeof(HGMinigame)).Result.CreateNewSessionAsync(ctx, new HGMinigame(), sessionBuilder, new List<DiscordMember>(ctx.Guild.Members.Values.ToList()));
+                    await MinigameInstanceClient.GetInstanceAsync<HGMinigame>().Result.CreateNewSessionAsync(ctx, new HGMinigame(), sessionBuilder, new List<DiscordMember>(ctx.Guild.Members.Values.ToList()));
                 }
                 else if (buttonsResult.Result.Id == "members_action")
                 {
                     await SendStartMessage();
-                    await MinigameInstanceClient.GetInstanceAsync(typeof(HGMinigame)).Result.CreateNewSessionAsync(ctx, new HGMinigame(), sessionBuilder, new List<DiscordMember>(ctx.Guild.Members.Values.Where(x => !x.IsBot).ToList()));
+                    await MinigameInstanceClient.GetInstanceAsync<HGMinigame>().Result.CreateNewSessionAsync(ctx, new HGMinigame(), sessionBuilder, new List<DiscordMember>(ctx.Guild.Members.Values.Where(x => !x.IsBot).ToList()));
                 }
                 else if (buttonsResult.Result.Id == "bots_action")
                 {
                     await SendStartMessage();
-                    await MinigameInstanceClient.GetInstanceAsync(typeof(HGMinigame)).Result.CreateNewSessionAsync(ctx, new HGMinigame(), sessionBuilder, new List<DiscordMember>(ctx.Guild.Members.Values.Where(x => x.IsBot).ToList()));
+                    await MinigameInstanceClient.GetInstanceAsync<HGMinigame>().Result.CreateNewSessionAsync(ctx, new HGMinigame(), sessionBuilder, new List<DiscordMember>(ctx.Guild.Members.Values.Where(x => x.IsBot).ToList()));
                 }
                 else if (buttonsResult.Result.Id == "npcs_action")
                 {
@@ -106,7 +106,7 @@ namespace SAB.Bot.Commands
                     }
 
                     await SendStartMessage();
-                    await MinigameInstanceClient.GetInstanceAsync(typeof(HGMinigame)).Result.CreateNewSessionAsync(ctx, new HGMinigame(), sessionBuilder, amount);
+                    await MinigameInstanceClient.GetInstanceAsync<HGMinigame>().Result.CreateNewSessionAsync(ctx, new HGMinigame(), sessionBuilder, amount);
                 }
                 else if (buttonsResult.Result.Id == "select_action")
                 {
@@ -130,7 +130,7 @@ namespace SAB.Bot.Commands
                         }
 
                         await SendStartMessage();
-                        await MinigameInstanceClient.GetInstanceAsync(typeof(HGMinigame)).Result.CreateNewSessionAsync(ctx, new HGMinigame(), sessionBuilder, new List<DiscordUser>(members));
+                        await MinigameInstanceClient.GetInstanceAsync<HGMinigame>().Result.CreateNewSessionAsync(ctx, new HGMinigame(), sessionBuilder, new List<DiscordUser>(members));
                     }
                 }
             }
