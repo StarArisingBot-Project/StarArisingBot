@@ -1,12 +1,12 @@
 ﻿using DSharpPlus;
 using DSharpPlus.EventArgs;
-using SAB.Managers;
 using System;
 using System.Threading.Tasks;
 using StarArisingBot.MinigameEngine;
 using StarArisingBot.Minigames.HungerGames;
+using StarArisingBot.Managers;
 
-namespace SAB.Launchers
+namespace StarArisingBot.Launchers
 {
     public static class SABEventsLauncher
     {

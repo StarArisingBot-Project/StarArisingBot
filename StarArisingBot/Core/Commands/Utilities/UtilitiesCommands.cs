@@ -3,7 +3,7 @@ using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Entities;
 using System.Threading.Tasks;
 
-namespace SAB.Bot.Commands
+namespace StarArisingBot.Core.Commands
 {
     public class UtilitiesCommands : BaseCommandModule
     {

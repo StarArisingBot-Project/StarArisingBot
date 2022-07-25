@@ -1,4 +1,4 @@
-﻿namespace SAB.System
+﻿namespace StarArisingBot.System
 {
     public static class SABApplication
     {

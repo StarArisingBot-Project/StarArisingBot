@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DSharpPlus;
 
-namespace SAB.Bot.Commands
+namespace StarArisingBot.Core.Commands
 {
     public class InteractionCommands : BaseCommandModule
     {

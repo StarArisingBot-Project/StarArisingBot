@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SAB.System
+namespace StarArisingBot
 {
     public class Program
     {

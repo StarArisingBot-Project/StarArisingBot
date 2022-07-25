@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace SAB.Bot.Commands
+namespace StarArisingBot.Core.Commands
 {
     [Hidden]
     public class EvalCommands : BaseCommandModule

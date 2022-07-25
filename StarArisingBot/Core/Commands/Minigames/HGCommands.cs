@@ -12,7 +12,7 @@ using DSharpPlus.EventArgs;
 using DSharpPlus;
 using StarArisingBot.Minigames.HungerGames;
 
-namespace SAB.Bot.Commands
+namespace StarArisingBot.Core.Commands
 {
     public class HGCommands : BaseCommandModule
     {

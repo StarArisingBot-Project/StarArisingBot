@@ -4,7 +4,7 @@ using DSharpPlus.CommandsNext.Entities;
 using DSharpPlus.Entities;
 using System.Collections.Generic;
 
-namespace SAB.Bot.Commands
+namespace StarArisingBot.Core.Modules.Help
 {
     internal class HelpModule : BaseHelpFormatter
     {

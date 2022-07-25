@@ -1,9 +1,9 @@
 ﻿using DSharpPlus;
-using SAB.Launchers;
+using StarArisingBot.Launchers;
 using System;
 using System.Threading.Tasks;
 
-namespace SAB.System
+namespace StarArisingBot
 {
     public class Startup
     {

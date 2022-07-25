@@ -3,7 +3,7 @@ using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Entities;
 using System.Threading.Tasks;
 
-namespace SAB.Help
+namespace StarArisingBot.Core.Modules.Help
 {
     [Hidden]
     public class HelpGenerators : BaseCommandModule

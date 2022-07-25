@@ -5,16 +5,16 @@ using DSharpPlus.Interactivity.Enums;
 using DSharpPlus.Interactivity.Extensions;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using SAB.Bot.Commands;
-using SAB.Experimental;
 using System;
 using System.IO;
 using System.Threading.Tasks;
 using StarArisingBot.Business.System;
 using StarArisingBot.Minigames.HungerGames;
 using StarArisingBot.MinigameEngine;
+using StarArisingBot.Core.Commands;
+using StarArisingBot.Experimental.Minigame;
 
-namespace SAB.Launchers
+namespace StarArisingBot.Launchers
 {
     public static class SABBotLauncher
     {
@@ -40,7 +40,7 @@ namespace SAB.Launchers
             client = await BuildClient();
             client = await BuildCommands(client);
             client = await BuildInteractivity(client);
-                     await BuildMinigames(client);
+            await BuildMinigames(client);
 
             //===================================================//
 

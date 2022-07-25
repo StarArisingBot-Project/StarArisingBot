@@ -1,11 +1,11 @@
 ﻿using DSharpPlus;
 using DSharpPlus.Entities;
-using SAB.System;
+using StarArisingBot.System;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace SAB.Managers
+namespace StarArisingBot.Managers
 {
     public static class SABDiscordActivityManager
     {

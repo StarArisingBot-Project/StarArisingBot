@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DSharpPlus.Interactivity;
 using DSharpPlus.Interactivity.Extensions;
 
-namespace SAB.Bot.Commands
+namespace StarArisingBot.Core.Commands
 {
     [Hidden]
     internal class TestCommands : BaseCommandModule

@@ -5,7 +5,7 @@ using System;
 using System.Threading.Tasks;
 using StarArisingBot.MinigameEngine;
 
-namespace SAB.Experimental
+namespace StarArisingBot.Experimental.Minigame
 {
     public class TestMinigame : MinigameModule
     {
