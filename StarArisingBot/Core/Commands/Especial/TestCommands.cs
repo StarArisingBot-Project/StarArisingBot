@@ -103,132 +103,11 @@ namespace StarArisingBot.Core.Commands
         [Command("MedidorGay"), Hidden]
         public async Task MedidorGay(CommandContext ctx)
         {
-            int gayMeter = random.Next(0, 100);
-            string gaySentenceSelected = string.Empty;
-
-            string[] gaySentence0 =
-            {
-                "Macho Alfa",
-                "Agride minorias",
-                "Bate em mulher",
-                "Bate em víado",
-                "Come e cospe no chão",
-                "Manda a muié lavar a louça",
-                "Ogro",
-            };
-            string[] gaySentence10 =
-            {
-                "Homem",
-                "Não se deixa abalar",
-                "Pensa em gays de vez em quando"
-            };
-            string[] gaySentence20 =
-            {
-                "As vezes dá uns deslizes",
-                "Já se viu gay mas não admite",
-            };
-            string[] gaySentence30 =
-            {
-                "Se finge",
-                "Bate pensando nele",
-                "Comeria um gay"
-            };
-            string[] gaySentence40 =
-            {
-                "Fala que é hetero mas daria pro amigo",
-                "Tendencias gays",
-                "Quadro grave",
-            };
-            string[] gaySentence50 =
-            {
-                "Bi",
-                "Caiu na vila, peixe fuzila",
-                "O que vier ta bom",
-                "🌈",
-            };
-            string[] gaySentence60 =
-            {
-                "Como da mesma fruta das putas",
-                "Gosta de 24",
-                "Agora todo mundo é gay",
-                "Bixisse sobre controle",
-            };
-            string[] gaySentence70 =
-            {
-                "Bicha",
-                "Viadasso",
-            };
-            string[] gaySentence80 =
-            {
-                "Dá sem olhar",
-                "Putinha",
-                "Muito gay"
-            };
-            string[] gaySentence90 =
-            {
-                "Gazela saltitante",
-                "Gosta de uma metida com força",
-                "Bixa assumida"
-            };
-            string[] gaySentence100 =
-            {
-                "Bixona sem cura",
-                "Gay",
-            };
-
-            switch (gayMeter)
-            {
-                case 100:
-                    gaySentenceSelected = gaySentence100[random.Next(0, gaySentence100.Length - 1)];
-                    break;
-
-                case > 90:
-                    gaySentenceSelected = gaySentence90[random.Next(0, gaySentence90.Length - 1)];
-                    break;
-
-                case > 80:
-                    gaySentenceSelected = gaySentence80[random.Next(0, gaySentence80.Length - 1)];
-                    break;
-
-                case > 70:
-                    gaySentenceSelected = gaySentence70[random.Next(0, gaySentence70.Length - 1)];
-                    break;
-
-                case > 60:
-                    gaySentenceSelected = gaySentence60[random.Next(0, gaySentence60.Length - 1)];
-                    break;
-
-                case > 50:
-                    gaySentenceSelected = gaySentence50[random.Next(0, gaySentence50.Length - 1)];
-                    break;
-
-                case > 40:
-                    gaySentenceSelected = gaySentence40[random.Next(0, gaySentence40.Length - 1)];
-                    break;
-
-                case > 30:
-                    gaySentenceSelected = gaySentence30[random.Next(0, gaySentence30.Length - 1)];
-                    break;
-
-                case > 20:
-                    gaySentenceSelected = gaySentence20[random.Next(0, gaySentence20.Length - 1)];
-                    break;
-
-                case > 10:
-                    gaySentenceSelected = gaySentence10[random.Next(0, gaySentence10.Length - 1)];
-                    break;
-
-                case >= 0:
-                    gaySentenceSelected = gaySentence0[random.Next(0, gaySentence0.Length - 1)];
-                    break;
-            }
-
-            await ctx.RespondAsync($"<@{ctx.User.Id}> pelos meus cáculos, você é **{gayMeter}%** gay :rainbow:.\n" +
-                                   $"{gaySentenceSelected}");
+            await MedidorGay(ctx, ctx.User);
         }
 
         [Command("MedidorGay")]
-        public async Task MedidorGay(CommandContext ctx, DiscordMember member)
+        public async Task MedidorGay(CommandContext ctx, DiscordUser user)
         {
             int gayMeter = random.Next(0, 100);
             string gaySentenceSelected = string.Empty;
@@ -247,7 +126,7 @@ namespace StarArisingBot.Core.Commands
             {
                 "Homem",
                 "Não se deixa abalar",
-                "Pensa em gays de vez em quando"
+                "Pensa em gays de vez em quando",
             };
             string[] gaySentence20 =
             {
@@ -272,18 +151,22 @@ namespace StarArisingBot.Core.Commands
                 "Caiu na vila, peixe fuzila",
                 "O que vier ta bom",
                 "🌈",
+                "Viveria um romance gay na faculdade",
             };
             string[] gaySentence60 =
             {
-                "Como da mesma fruta das putas",
+                "Come da mesma fruta das putas",
                 "Gosta de 24",
                 "Agora todo mundo é gay",
                 "Bixisse sobre controle",
+                "Adora dar umas sentadas de vez em quando"
             };
             string[] gaySentence70 =
             {
                 "Bicha",
                 "Viadasso",
+                "Gosta de agressivo",
+                "Um passivo submisso"
             };
             string[] gaySentence80 =
             {
@@ -295,12 +178,18 @@ namespace StarArisingBot.Core.Commands
             {
                 "Gazela saltitante",
                 "Gosta de uma metida com força",
-                "Bixa assumida"
+                "Bixa assumida",
+                "Curte um BDSM",
+                "Chupa com força",
+                "Adora fzr um Ahegao"
             };
             string[] gaySentence100 =
             {
                 "Bixona sem cura",
                 "Gay",
+                "Geme com força",
+                "Adora ficar de 4",
+                "Quer gozada na cara",
             };
 
             switch (gayMeter)
@@ -350,7 +239,7 @@ namespace StarArisingBot.Core.Commands
                     break;
             }
 
-            await ctx.RespondAsync($"<@{member.Id}> pelos meus cáculos, você é **{gayMeter}%** gay :rainbow:.\n" +
+            await ctx.RespondAsync($"<@{user.Id}> pelos meus cáculos, você é **{gayMeter}%** gay :rainbow:.\n" +
                                    $"{gaySentenceSelected}");
         }
     }
