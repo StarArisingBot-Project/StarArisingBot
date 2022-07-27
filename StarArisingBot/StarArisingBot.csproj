@@ -13,10 +13,10 @@
 		<PackageReference Include="DSharpPlus" Version="4.3.0-nightly-01159" />
 		<PackageReference Include="DSharpPlus.CommandsNext" Version="4.3.0-nightly-01159" />
 		<PackageReference Include="DSharpPlus.Interactivity" Version="4.3.0-nightly-01159" />
-		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.3.0-2.final" />
-		<PackageReference Include="Microsoft.CodeAnalysis.Scripting" Version="4.3.0-2.final" />
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.3.0-3.final" />
+		<PackageReference Include="Microsoft.CodeAnalysis.Scripting" Version="4.3.0-3.final" />
 		<PackageReference Include="System.Drawing.Common" Version="7.0.0-preview.6.22324.4" />
-		<PackageReference Include="Microsoft.VisualBasic" Version="10.3.0" />
+		<PackageReference Include="Microsoft.VisualBasic" Version="10.4.0-preview.18571.3" />
 	</ItemGroup>
 
 	<!--SAB Packeges References-->
