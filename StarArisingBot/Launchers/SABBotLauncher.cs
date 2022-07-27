@@ -102,6 +102,7 @@ namespace StarArisingBot.Launchers
 
             //Normal Commands
             commandsNext.RegisterCommands<UtilitiesCommands>();
+            commandsNext.RegisterCommands<InfoCommands>();
             commandsNext.RegisterCommands<InteractionCommands>();
 
             //Experimental

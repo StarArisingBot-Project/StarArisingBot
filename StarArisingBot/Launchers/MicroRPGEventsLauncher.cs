@@ -38,6 +38,7 @@ namespace StarArisingBot.Launchers
             {
                 //Discord Activity
                 await SABDiscordActivityManager.StartAsync(client).ConfigureAwait(false);
+                await SABBotUptimeManager.StartAsync().ConfigureAwait(false);
             }
         }
     }

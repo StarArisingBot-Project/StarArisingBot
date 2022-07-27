@@ -16,6 +16,7 @@
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.3.0-2.final" />
 		<PackageReference Include="Microsoft.CodeAnalysis.Scripting" Version="4.3.0-2.final" />
 		<PackageReference Include="System.Drawing.Common" Version="7.0.0-preview.6.22324.4" />
+		<PackageReference Include="Microsoft.VisualBasic" Version="10.3.0" />
 	</ItemGroup>
 
 	<!--SAB Packeges References-->
