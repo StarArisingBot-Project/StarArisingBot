@@ -2,9 +2,9 @@
 
 namespace StarArisingBot
 {
-    public class Program
+    internal static class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             new Startup().RunAsync().GetAwaiter().GetResult();
         }
