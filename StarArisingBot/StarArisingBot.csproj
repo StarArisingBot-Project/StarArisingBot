@@ -30,8 +30,7 @@
 
 	<!--SAB Projects Dlls-->
 	<ItemGroup>
-	  <Reference Include="HungerGames">
-	    <HintPath>Bot\Minigames\HungerGames.dll</HintPath>
-	  </Reference>
+	  <Reference Include="HungerGames"><HintPath>Bot\Minigames\HungerGames.dll</HintPath></Reference>
+	  <Reference Include="WhoSentTheMessage"><HintPath>Bot\Minigames\WhoSentTheMessage.dll</HintPath></Reference>
 	</ItemGroup>
 </Project>

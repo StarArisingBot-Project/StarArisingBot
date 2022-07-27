@@ -9,10 +9,13 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using StarArisingBot.Business.System;
-using StarArisingBot.Minigames.HungerGames;
 using StarArisingBot.MinigameEngine;
 using StarArisingBot.Core.Commands;
 using StarArisingBot.Experimental.Minigame;
+
+//Minigames
+using StarArisingBot.Minigames.HungerGames;
+using StarArisingBot.Minigames.WhoSentTheMessage;
 
 namespace StarArisingBot.Launchers
 {
@@ -128,9 +131,11 @@ namespace StarArisingBot.Launchers
 
             //Minigame Commands
             commandsNext.RegisterCommands<HGCommands>();
+            commandsNext.RegisterCommands<WSTMCommands>();
 
             //Minigame Register
             MinigameInstanceClient.RegisterMinigameModule<HGMinigame>();
+            MinigameInstanceClient.RegisterMinigameModule<WSTMMinigame>();
         }
 
         //====================//
