@@ -12,10 +12,10 @@ namespace StarArisingBot.Core.Commands
 {
     public class InteractionCommands : BaseCommandModule
     {
-        [Command("Avatar")]
+        [Command("Avatar"), Description("Veja o seu Avatar ou o Avatar algum usuário!")]
         public async Task Avatar(CommandContext ctx)
         {
-            DiscordEmbedBuilder embedBuilder = new DiscordEmbedBuilder()
+            DiscordEmbedBuilder embedBuilder = new()
             {
                 Title = $"🖼️ • Avatar de {ctx.User.Username} • 🖼️",
                 Description = $"**Para baixar a imagem clique [Aqui]({ctx.User.AvatarUrl})**",

@@ -16,7 +16,7 @@ namespace StarArisingBot.Core.Commands
 {
     public class WSTMCommands : BaseCommandModule
     {
-        [Command("WhoSentTheMessage"), Aliases("WSTM")]
+        [Command("WhoSentTheMessage"), Aliases("WSTM"), Description("Tente adivinhar o autor da mensagem!")]
         public async Task WhoSentTheMessage(CommandContext ctx)
         {
             if(await MinigameInstanceClient.GetInstanceAsync<WSTMMinigame>().Result.GetSessionAsync(MinigameSessionAuthorType.User, ctx.User.Id) != null)

@@ -13,7 +13,7 @@ namespace StarArisingBot.Core.Commands
     {
         public Random random = new Random();
 
-        [Command("Matriz"), Hidden]
+        [Command("Matriz")]
         public async Task Matriz(CommandContext ctx, int number)
         {
             #region blocos para o mapa
@@ -46,13 +46,13 @@ namespace StarArisingBot.Core.Commands
             }
         }
 
-        [Command("Reação"), Hidden]
+        [Command("Reação")]
         public async Task Reaction(CommandContext ctx)
         {
             await ctx.Message.CreateReactionAsync(DiscordEmoji.FromName(ctx.Client, ":star:"));
         }
 
-        [Command("Porcentagem"), Hidden]
+        [Command("Porcentagem")]
         public async Task Porcetagem(CommandContext ctx, params DiscordMember[] members)
         {
             int value = ctx.Guild.Members.Count / members.Length;
@@ -61,7 +61,7 @@ namespace StarArisingBot.Core.Commands
             await ctx.RespondAsync($"Os usuarios selecionados representam {porcentagem}% do servidor \n\n *{members.Length}/{ctx.Guild.Members.Count}*");
         }
 
-        [Command("MedidorPenis"), Aliases("MedidorDePenis"), Hidden]
+        [Command("MedidorPenis"), Aliases("MedidorDePenis")]
         public async Task MedidorPenis(CommandContext ctx)
         {
             int size = random.Next(1, 40);
@@ -100,7 +100,7 @@ namespace StarArisingBot.Core.Commands
             await ctx.RespondAsync($"{ctx.Member.DisplayName} medi seu pinto aqui e descobri que se tem **{size}cm**, {fraseExtra}");
         }
 
-        [Command("MedidorGay"), Hidden]
+        [Command("MedidorGay")]
         public async Task MedidorGay(CommandContext ctx)
         {
             await MedidorGay(ctx, ctx.User);

@@ -16,6 +16,7 @@ using StarArisingBot.Experimental.Minigame;
 //Minigames
 using StarArisingBot.Minigames.HungerGames;
 using StarArisingBot.Minigames.WhoSentTheMessage;
+using StarArisingBot.Core.Modules.Help;
 
 namespace StarArisingBot.Launchers
 {
@@ -86,6 +87,8 @@ namespace StarArisingBot.Launchers
             {
                 StringPrefixes = new string[] { ":>", "=>" },
 
+                DmHelp = false,
+                EnableDefaultHelp = true,
                 EnableMentionPrefix = true,
                 EnableDms = true,
                 CaseSensitive = false,
@@ -93,6 +96,7 @@ namespace StarArisingBot.Launchers
             };
 
             CommandsNextExtension commandsNext = client.UseCommandsNext(commandsConfig);
+            commandsNext.SetHelpFormatter<HelpModule>();
 
             #region Register Commands
 
@@ -107,10 +111,10 @@ namespace StarArisingBot.Launchers
             //Utilities Commands
             commandsNext.RegisterCommands<UtilitiesCommands>();
             commandsNext.RegisterCommands<InfoCommands>();
+            commandsNext.RegisterCommands<HelpCommands>();
 
             //Experimental
             commandsNext.RegisterCommands<MinigameCommand>();
-
             //==================//
 
             #endregion

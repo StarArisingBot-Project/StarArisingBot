@@ -15,7 +15,7 @@ namespace StarArisingBot.Core.Commands
 {
     public class InfoCommands : BaseCommandModule
     {
-        [Command("BotInfo")]
+        [Command("BotInfo"), Aliases("InfoBot"), Description("Veja informações relacionadas ao Bot")]
         public async Task BotInfo(CommandContext ctx)
         {
             StringBuilder botInfosString = new();

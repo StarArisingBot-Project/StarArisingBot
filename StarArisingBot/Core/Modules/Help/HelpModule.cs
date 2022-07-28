@@ -8,8 +8,8 @@ namespace StarArisingBot.Core.Modules.Help
 {
     internal class HelpModule : BaseHelpFormatter
     {
-        public DiscordEmbedBuilder helpEmbed = null;
-        private readonly CommandContext ctx = null;
+        public readonly DiscordEmbedBuilder helpEmbed = null;
+        private readonly CommandContext context = null;
 
         public HelpModule(CommandContext ctx) : base(ctx)
         {
@@ -17,7 +17,7 @@ namespace StarArisingBot.Core.Modules.Help
                                                                   $"\n**:star: • Precisando de ajuda {ctx.User.Username}? Aqui esta uma lista completa de todos os meus comandos e geradores! • :star:** \n\n")
                                                  .WithColor(DiscordColor.Purple);
 
-            this.ctx = ctx;
+            context = ctx;
         }
 
         public override BaseHelpFormatter WithSubcommands(IEnumerable<Command> subCommands)
@@ -32,26 +32,6 @@ namespace StarArisingBot.Core.Modules.Help
         public override CommandHelpMessage Build()
         {
             return new CommandHelpMessage(null, helpEmbed);
-        }
-    }
-
-    public class CodeHelpBlock
-    {
-        public string GroupTitle { get; set; }
-        public List<string> Commands = new List<string>();
-
-        public int Position { get; set; }
-
-        public string ReturnBlockCode()
-        {
-            string commandsInfo = "";
-            foreach (string command in Commands)
-            {
-                commandsInfo += $"{command} \n";
-            }
-
-            return $"**{GroupTitle}** \n" +
-                   $"{commandsInfo} \n";
         }
     }
 }

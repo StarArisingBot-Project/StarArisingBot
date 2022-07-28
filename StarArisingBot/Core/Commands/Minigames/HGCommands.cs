@@ -16,7 +16,7 @@ namespace StarArisingBot.Core.Commands
 {
     public class HGCommands : BaseCommandModule
     {
-        [Command("HungerGames"), Aliases("HG")]
+        [Command("HungerGames"), Aliases("HG"), Description("Quem séra o ultimo a sair vivo dos Jogos Vorazes?")]
         public async Task HungerGames(CommandContext ctx)
         {
             MinigameSessionBuilder sessionBuilder = new()

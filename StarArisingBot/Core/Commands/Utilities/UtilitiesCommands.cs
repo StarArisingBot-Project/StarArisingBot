@@ -10,7 +10,7 @@ namespace StarArisingBot.Core.Commands
         [Command("Convite"), Aliases("invite", "invitation"), Description("Mostra meu Link de Convite para me Adicionar no seu Servidor!")]
         public async Task BotInvite(CommandContext ctx)
         {
-            DiscordEmbedBuilder InviteEmbed = new DiscordEmbedBuilder
+            DiscordEmbedBuilder InviteEmbed = new()
             {
                 Color = DiscordColor.Yellow,
                 Title = ":star: • Menssagem de Convite • :star:",

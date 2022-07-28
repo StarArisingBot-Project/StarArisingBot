@@ -15,15 +15,6 @@ namespace StarArisingBot.Core.Commands
     [Hidden]
     public class EvalCommands : BaseCommandModule
     {
-        [Command("EvalHelp")]
-        public async Task EvalHelp(CommandContext ctx, [RemainingText] string code)
-        {
-
-
-            HttpClient client = new HttpClient();
-            HttpResponseMessage DsharpPlusSite = await client.GetAsync("https://dsharpplus.github.io/api/index.html");
-        }
-
         [Command("Script"), Aliases("Eval", "E", "S")]
         public async Task Script(CommandContext ctx, [RemainingText] string expression)
         {
