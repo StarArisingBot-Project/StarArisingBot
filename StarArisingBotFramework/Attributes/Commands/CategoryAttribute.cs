@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace StarArisingBotFramework.Attributes.Commands
 {
     [AttributeUsage(AttributeTargets.Class)]
-    public class CommandCategory : Attribute
+    public class CategoryAttribute : Attribute
     {
         public string Name { get; }
 
-        public CommandCategory(string name)
+        public CategoryAttribute(string name)
         {
             Name = name;
         }

@@ -7,9 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DSharpPlus;
+using StarArisingBotFramework.Attributes.Commands;
 
 namespace StarArisingBot.Core.Commands
 {
+    [Category("Fun")]
     public class InteractionCommands : BaseCommandModule
     {
         [Command("Avatar"), Description("Veja o seu Avatar ou o Avatar algum usuário!")]

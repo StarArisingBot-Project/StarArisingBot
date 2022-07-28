@@ -88,7 +88,7 @@ namespace StarArisingBot.Launchers
                 StringPrefixes = new string[] { ":>", "=>" },
 
                 DmHelp = false,
-                EnableDefaultHelp = true,
+                EnableDefaultHelp = false,
                 EnableMentionPrefix = true,
                 EnableDms = true,
                 CaseSensitive = false,

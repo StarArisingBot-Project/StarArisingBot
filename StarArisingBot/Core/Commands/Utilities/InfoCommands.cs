@@ -10,9 +10,11 @@ using DSharpPlus.Entities;
 using StarArisingBot.System;
 using StarArisingBot.Managers;
 using System.Net.Http;
+using StarArisingBotFramework.Attributes.Commands;
 
 namespace StarArisingBot.Core.Commands
 {
+    [Category("Utilities")]
     public class InfoCommands : BaseCommandModule
     {
         [Command("BotInfo"), Aliases("InfoBot"), Description("Veja informações relacionadas ao Bot")]

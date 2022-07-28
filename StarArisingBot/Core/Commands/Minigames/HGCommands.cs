@@ -11,9 +11,11 @@ using DSharpPlus.Interactivity;
 using DSharpPlus.EventArgs;
 using DSharpPlus;
 using StarArisingBot.Minigames.HungerGames;
+using StarArisingBotFramework.Attributes.Commands;
 
 namespace StarArisingBot.Core.Commands
 {
+    [Category("Minigames")]
     public class HGCommands : BaseCommandModule
     {
         [Command("HungerGames"), Aliases("HG"), Description("Quem séra o ultimo a sair vivo dos Jogos Vorazes?")]

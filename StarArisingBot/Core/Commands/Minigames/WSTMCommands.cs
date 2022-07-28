@@ -11,9 +11,11 @@ using DSharpPlus.Interactivity;
 using DSharpPlus.EventArgs;
 using DSharpPlus;
 using StarArisingBot.Minigames.WhoSentTheMessage;
+using StarArisingBotFramework.Attributes.Commands;
 
 namespace StarArisingBot.Core.Commands
 {
+    [Category("Minigames")]
     public class WSTMCommands : BaseCommandModule
     {
         [Command("WhoSentTheMessage"), Aliases("WSTM"), Description("Tente adivinhar o autor da mensagem!")]

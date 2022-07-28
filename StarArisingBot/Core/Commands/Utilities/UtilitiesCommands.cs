@@ -1,10 +1,12 @@
 ﻿using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Entities;
+using StarArisingBotFramework.Attributes.Commands;
 using System.Threading.Tasks;
 
 namespace StarArisingBot.Core.Commands
 {
+    [Category("Utilities")]
     public class UtilitiesCommands : BaseCommandModule
     {
         [Command("Convite"), Aliases("invite", "invitation"), Description("Mostra meu Link de Convite para me Adicionar no seu Servidor!")]
