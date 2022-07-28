@@ -99,15 +99,18 @@ namespace StarArisingBot.Launchers
             //==================//
             //Especial Commands
             commandsNext.RegisterCommands<EvalCommands>();
+            commandsNext.RegisterCommands<TestCommands>();
 
-            //Normal Commands
-            commandsNext.RegisterCommands<UtilitiesCommands>();
-            commandsNext.RegisterCommands<InfoCommands>();
+            //Fun Commands
             commandsNext.RegisterCommands<InteractionCommands>();
 
+            //Utilities Commands
+            commandsNext.RegisterCommands<UtilitiesCommands>();
+            commandsNext.RegisterCommands<InfoCommands>();
+
             //Experimental
-            commandsNext.RegisterCommands<TestCommands>();
             commandsNext.RegisterCommands<MinigameCommand>();
+
             //==================//
 
             #endregion
