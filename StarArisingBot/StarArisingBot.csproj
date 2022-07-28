@@ -25,9 +25,6 @@
 	</ItemGroup>
 
 	<!--SAB Projects References-->
-	<ItemGroup>
-	  <ProjectReference Include="..\StarArisingBot.Business\StarArisingBot.Business.csproj" />
-	</ItemGroup>
 
 	<!--SAB Projects Dlls-->
 	<ItemGroup>
