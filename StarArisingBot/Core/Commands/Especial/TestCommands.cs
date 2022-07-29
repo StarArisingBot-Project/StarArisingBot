@@ -3,8 +3,6 @@ using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Entities;
 using System;
 using System.Threading.Tasks;
-using DSharpPlus.Interactivity;
-using DSharpPlus.Interactivity.Extensions;
 
 namespace StarArisingBot.Core.Commands
 {

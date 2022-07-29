@@ -1,17 +1,17 @@
-﻿using DSharpPlus.CommandsNext;
+﻿using DSharpPlus;
+using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Entities;
+using DSharpPlus.EventArgs;
+using DSharpPlus.Interactivity;
 using DSharpPlus.Interactivity.Extensions;
+using StarArisingBot.MinigameEngine;
+using StarArisingBot.Minigames.HungerGames;
+using StarArisingBotFramework.Attributes.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using StarArisingBot.MinigameEngine;
-using DSharpPlus.Interactivity;
-using DSharpPlus.EventArgs;
-using DSharpPlus;
-using StarArisingBot.Minigames.HungerGames;
-using StarArisingBotFramework.Attributes.Commands;
 
 namespace StarArisingBot.Core.Commands
 {
@@ -61,7 +61,7 @@ namespace StarArisingBot.Core.Commands
 
             DiscordMessage currentMessage = await ctx.Channel.SendMessageAsync(actionMenuMessage);
 
-            var buttonsResult = await currentMessage.WaitForButtonAsync(ctx.User);
+            InteractivityResult<ComponentInteractionCreateEventArgs> buttonsResult = await currentMessage.WaitForButtonAsync(ctx.User);
             if (!buttonsResult.TimedOut)
             {
                 await buttonsResult.Result.Interaction.CreateResponseAsync(InteractionResponseType.DeferredMessageUpdate);

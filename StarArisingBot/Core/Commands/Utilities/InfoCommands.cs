@@ -1,16 +1,13 @@
-﻿using System;
+﻿using DSharpPlus.CommandsNext;
+using DSharpPlus.CommandsNext.Attributes;
+using DSharpPlus.Entities;
+using StarArisingBot.Managers;
+using StarArisingBot.System;
+using StarArisingBotFramework.Attributes.Commands;
+using System;
 using System.Diagnostics;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DSharpPlus.CommandsNext.Attributes;
-using DSharpPlus.CommandsNext;
-using DSharpPlus.Entities;
-using StarArisingBot.System;
-using StarArisingBot.Managers;
-using System.Net.Http;
-using StarArisingBotFramework.Attributes.Commands;
 
 namespace StarArisingBot.Core.Commands
 {
@@ -57,8 +54,8 @@ namespace StarArisingBot.Core.Commands
             botInfosString.AppendLine($"➥ **Uso de Mémoria:** {currentRamUsage}mb");
             botInfosString.AppendLine($"➥ **Plataform:** {Environment.OSVersion.Platform}");
             botInfosString.AppendLine($"➥ **Version:**  {Environment.OSVersion.VersionString}");
-            #if DEBUG
-                botInfosString.AppendLine($"➥ **Ambiente:** Development");
+#if DEBUG
+            botInfosString.AppendLine($"➥ **Ambiente:** Development");
 #else
                 botInfosString.AppendLine($"➥ **Ambiente:** Production ");
 #endif

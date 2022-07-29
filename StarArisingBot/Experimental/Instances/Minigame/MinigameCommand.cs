@@ -1,11 +1,7 @@
 ﻿using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
-using StarArisingBot.Managers;
-using System.Threading.Tasks;
 using StarArisingBot.MinigameEngine;
-using DSharpPlus.Entities;
-using DSharpPlus;
-using DSharpPlus.Interactivity.Extensions;
+using System.Threading.Tasks;
 
 namespace StarArisingBot.Experimental.Minigame
 {

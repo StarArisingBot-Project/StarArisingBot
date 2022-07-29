@@ -1,13 +1,9 @@
-﻿using DSharpPlus.CommandsNext;
+﻿using DSharpPlus;
+using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
 using DSharpPlus.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DSharpPlus;
 using StarArisingBotFramework.Attributes.Commands;
+using System.Threading.Tasks;
 
 namespace StarArisingBot.Core.Commands
 {

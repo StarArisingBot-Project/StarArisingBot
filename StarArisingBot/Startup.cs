@@ -1,6 +1,5 @@
 ﻿using DSharpPlus;
 using StarArisingBot.Launchers;
-using System;
 using System.Threading.Tasks;
 
 namespace StarArisingBot

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace StarArisingBot
+﻿namespace StarArisingBot
 {
     internal static class Program
     {

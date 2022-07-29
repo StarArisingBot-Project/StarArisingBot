@@ -1,10 +1,8 @@
 ﻿using DSharpPlus;
 using DSharpPlus.EventArgs;
+using StarArisingBot.Managers;
 using System;
 using System.Threading.Tasks;
-using StarArisingBot.MinigameEngine;
-using StarArisingBot.Minigames.HungerGames;
-using StarArisingBot.Managers;
 
 namespace StarArisingBot.Launchers
 {

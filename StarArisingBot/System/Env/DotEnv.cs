@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StarArisingBot.System
 {
@@ -14,9 +10,9 @@ namespace StarArisingBot.System
             if (!File.Exists(filePath))
                 return;
 
-            foreach (var line in File.ReadAllLines(filePath))
+            foreach (string? line in File.ReadAllLines(filePath))
             {
-                var parts = line.Split('=', StringSplitOptions.RemoveEmptyEntries);
+                string[]? parts = line.Split('=', StringSplitOptions.RemoveEmptyEntries);
 
                 string variable = parts[0];
                 string value = parts[1];

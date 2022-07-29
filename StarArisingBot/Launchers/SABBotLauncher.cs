@@ -1,21 +1,21 @@
-﻿using DSharpPlus;
+﻿using System;
+using System.IO;
+using System.Threading.Tasks;
+
+using DSharpPlus;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.Interactivity;
 using DSharpPlus.Interactivity.Enums;
 using DSharpPlus.Interactivity.Extensions;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using System;
-using System.IO;
-using System.Threading.Tasks;
-using StarArisingBot.System;
-using StarArisingBot.MinigameEngine;
 using StarArisingBot.Core.Commands;
 using StarArisingBot.Experimental.Minigame;
+using StarArisingBot.MinigameEngine;
 
 //Minigames
 using StarArisingBot.Minigames.HungerGames;
 using StarArisingBot.Minigames.WhoSentTheMessage;
+using StarArisingBot.System;
 
 namespace StarArisingBot.Launchers
 {
@@ -133,7 +133,7 @@ namespace StarArisingBot.Launchers
         private static async Task BuildMinigames(DiscordClient client)
         {
             await MinigameInstanceClient.StartAsync(client);
-            var commandsNext = client.GetCommandsNext();
+            CommandsNextExtension? commandsNext = client.GetCommandsNext();
 
             //Minigame Commands
             commandsNext.RegisterCommands<HGCommands>();
