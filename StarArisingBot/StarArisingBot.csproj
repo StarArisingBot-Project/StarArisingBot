@@ -35,4 +35,7 @@
 	  <Reference Include="HungerGames"><HintPath>Bot\Minigames\HungerGames.dll</HintPath></Reference>
 	  <Reference Include="WhoSentTheMessage"><HintPath>Bot\Minigames\WhoSentTheMessage.dll</HintPath></Reference>
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Executors\" />
+	</ItemGroup>
 </Project>

@@ -12,6 +12,8 @@ using StarArisingBot.Core.Commands;
 using StarArisingBot.Experimental.Minigame;
 using StarArisingBot.MinigameEngine;
 
+using StarArisingBot.Executors;
+
 //Minigames
 using StarArisingBot.Minigames.HungerGames;
 using StarArisingBot.Minigames.WhoSentTheMessage;
@@ -85,6 +87,7 @@ namespace StarArisingBot.Launchers
             CommandsNextConfiguration commandsConfig = new()
             {
                 StringPrefixes = new string[] { ":>", "=>" },
+                CommandExecutor = new SABCommandExecutor(),
 
                 DmHelp = false,
                 EnableDefaultHelp = false,
