@@ -16,7 +16,6 @@ using StarArisingBot.Experimental.Minigame;
 //Minigames
 using StarArisingBot.Minigames.HungerGames;
 using StarArisingBot.Minigames.WhoSentTheMessage;
-using StarArisingBot.Core.Modules.Help;
 
 namespace StarArisingBot.Launchers
 {
@@ -96,7 +95,6 @@ namespace StarArisingBot.Launchers
             };
 
             CommandsNextExtension commandsNext = client.UseCommandsNext(commandsConfig);
-            commandsNext.SetHelpFormatter<HelpModule>();
 
             #region Register Commands
 
