@@ -87,7 +87,7 @@ ___
 
 <br/>
 
-### ```1.``` Preparando Ambiente 
+### ```1.``` Preparing Environment
 <p>• Clone the repository using Git:</p>
 
 ```
@@ -108,7 +108,7 @@ dotnet build
 
 <br/>
 
-### ```3.``` Executando o Projeto
+### ```3.``` Running the Project
 - After compilation, go to the folder where the project was compiled;
 - In the folder create a file called ".env" (Without the quotes);
 - In this file put the information of the template file located <a href="./.github/Templates/System/.env (TEMPLATE)">Here</a>;
@@ -126,7 +126,7 @@ ___
 
 <div>
 	<img align="left" width="150px" src="./.github/Images/Icons/Users/Starciad (Icon).png"/>
-	<h3 align="center">✨ 《 CRIADOR 》 ✨</h3>
+	<h3 align="center">✨ 《 CREATOR 》 ✨</h3>
 
 ```
 Starciad
