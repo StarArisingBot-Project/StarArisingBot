@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using StarArisingBot.Business.System;
+using StarArisingBot.System;
 using StarArisingBot.MinigameEngine;
 using StarArisingBot.Core.Commands;
 using StarArisingBot.Experimental.Minigame;

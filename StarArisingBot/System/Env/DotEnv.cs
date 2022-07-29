@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StarArisingBot.Business.System
+namespace StarArisingBot.System
 {
     public static class DotEnv
     {
