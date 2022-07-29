@@ -10,7 +10,7 @@ namespace StarArisingBot
 
         public async Task RunAsync()
         {
-            CurrentClient = await SABBotLauncher.StartBotSettingsAsync();
+            CurrentClient = await SABLauncher.StartBotSettingsAsync();
             await SABEventsLauncher.StartDiscordEventsAsync(CurrentClient);
 
             //==================================//

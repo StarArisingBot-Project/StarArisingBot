@@ -21,38 +21,37 @@ using StarArisingBot.System;
 
 namespace StarArisingBot.Launchers
 {
-    public static class SABBotLauncher
+    public static class SABLauncher
     {
         private static SABBotTokens botTokens = new();
+        private static DiscordClient client = null;
 
         //====================//
         //BOT SETTINGS ACTIONS//
         public static async Task<DiscordClient> StartBotSettingsAsync()
         {
             string root = Directory.GetCurrentDirectory();
-            string dotenv = Path.Combine(root, ".env");
-            DotEnv.Load(dotenv);
+            string dotenvPath = Path.Combine(root, ".env");
+            DotEnv.Load(dotenvPath);
 
             botTokens = new SABBotTokens()
             {
-                BotToken = Environment.GetEnvironmentVariable("BOT_TOKEN")
+                BotToken = Environment.GetEnvironmentVariable("BOT_TOKEN"),
             };
 
             //===================================================//
 
-            DiscordClient client;
-
-            client = await BuildClient();
-            client = await BuildCommands(client);
-            client = await BuildInteractivity(client);
-            await BuildMinigames(client);
+            await BuildClient();
+            await BuildCommands();
+            await BuildInteractivity();
+            await BuildMinigames();
 
             //===================================================//
 
             return await Task.FromResult(client);
         }
 
-        private static async Task<DiscordClient> BuildClient()
+        private static Task BuildClient()
         {
             DiscordConfiguration ClientConfig = new()
             {
@@ -78,11 +77,11 @@ namespace StarArisingBot.Launchers
                           | DiscordIntents.DirectMessageTyping
                           | DiscordIntents.GuildWebhooks
             };
-            DiscordClient client = new(ClientConfig);
 
-            return await Task.FromResult(client);
+            client = new(ClientConfig);
+            return Task.CompletedTask;
         }
-        private static async Task<DiscordClient> BuildCommands(DiscordClient client)
+        private static Task BuildCommands()
         {
             CommandsNextConfiguration commandsConfig = new()
             {
@@ -120,9 +119,9 @@ namespace StarArisingBot.Launchers
 
             #endregion
 
-            return await Task.FromResult(client);
+            return Task.CompletedTask;
         }
-        private static async Task<DiscordClient> BuildInteractivity(DiscordClient client)
+        private static Task BuildInteractivity()
         {
             client.UseInteractivity(new InteractivityConfiguration()
             {
@@ -131,9 +130,9 @@ namespace StarArisingBot.Launchers
                 ResponseBehavior = InteractionResponseBehavior.Ack,
             });
 
-            return await Task.FromResult(client);
+            return Task.CompletedTask;
         }
-        private static async Task BuildMinigames(DiscordClient client)
+        private static async Task BuildMinigames()
         {
             await MinigameInstanceClient.StartAsync(client);
             CommandsNextExtension? commandsNext = client.GetCommandsNext();

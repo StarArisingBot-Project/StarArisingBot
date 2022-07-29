@@ -1,1 +1,24 @@
-BOT_TOKEN=YourToken
+// ================================================ //
+//				                   				    //
+//    This file is part of the StarArising Project. //
+//				  .env (Template)				    //
+//				                   				    //
+//           Copyright (c) 2022 Starciad            //
+//				                   				    //
+// ================================================ //
+
+// ============================================================================== //
+//                                                                                //
+//                                HOW TO USE	                                  //
+//                                                                                //
+//     Below is a list of environment variables used by the Bot to function.      //
+//                                                                                //
+//     If you are going to create environment variables follow this model:        //
+//                             [Name]="Value";                                    //
+//                                                                                //
+//                                                                                //
+//     • Do not add spaces and declare each variable on a separate line           //
+//                                                                                //
+// ============================================================================== //
+
+[BOT_TOKEN]="YourToken";
