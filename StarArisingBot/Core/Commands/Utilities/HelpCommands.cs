@@ -1,10 +1,15 @@
-﻿using System;
+﻿#pragma warning disable CS8618
+
+using System;
 using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DSharpPlus;
+using DSharpPlus.EventArgs;
+using DSharpPlus.Interactivity;
+using DSharpPlus.Interactivity.Extensions;
 using DSharpPlus.Entities;
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
@@ -15,58 +20,54 @@ namespace StarArisingBot.Core.Commands
     [Category("Utilities")]
     public class HelpCommands : BaseCommandModule
     {
-        private Assembly currentAssembly;
+        private CommandContext Context { get; set; }
+        private Assembly CurrentAssembly { get; set; }
+        private Dictionary<string, DiscordEmoji> HelpEmojisDictionary { get; } = new();
 
         private DiscordMessage mainMessage;
 
         [Command("Ajuda"), Aliases("Help"), Description("Abre o menu de ajuda")]
         public async Task Startup(CommandContext ctx)
         {
-            currentAssembly = typeof(HelpCommands).Assembly;
+            //Infos
+            Context = ctx;
+            CurrentAssembly = typeof(HelpCommands).Assembly;
 
-            //============================//
-            //Description
+            HelpEmojisDictionary.Add("Commands", DiscordEmoji.FromGuildEmote(ctx.Client, 1002368869035429949));
+            HelpEmojisDictionary.Add("Site", DiscordEmoji.FromUnicode("🌐"));
+            HelpEmojisDictionary.Add("FAQ", DiscordEmoji.FromGuildEmote(ctx.Client, 1002369373568249926));
+            HelpEmojisDictionary.Add("Support", DiscordEmoji.FromUnicode("👤"));
+            HelpEmojisDictionary.Add("Guildelines", DiscordEmoji.FromUnicode("📜"));
+
+            //Message
+            mainMessage = await ctx.RespondAsync("《 **INICIANDO MENU DE AJUDA** 》\n");
+
+            //Menu
+            await ShowMenu();
+        }
+
+        //================================//
+        private async Task ShowMenu()
+        {
             StringBuilder helpEmbedContent = new();
 
-            helpEmbedContent.AppendLine($"**➤ Sou um bot Brasileiro em desenvolvimento, muito divertido e com varios comandos para te entreter!**");
-            helpEmbedContent.AppendLine($"\n**:star: • Precisando de ajuda {ctx.User.Username}? Aqui está um Roadmap para auxiliar você nas minhas funções! • :star:**\n");
+            helpEmbedContent.AppendLine("**➤ Sou um bot Brasileiro em desenvolvimento, muito divertido e com varios comandos para te entreter!**");
+            helpEmbedContent.AppendLine($"\n**:star: • Precisando de ajuda {Context.User.Username}? Aqui está um Roadmap para auxiliar você nas minhas funções! • :star:**\n");
 
-            helpEmbedContent.AppendLine($"**[ Lista de Comandos ]**");
-            helpEmbedContent.AppendLine($"_Veja a lista completa de Comandos dísponíveis_\n");
+            helpEmbedContent.AppendFormat("\n{0} • **[ Lista de Comandos ]** • {0}\n", HelpEmojisDictionary["Commands"]);
+            helpEmbedContent.AppendLine("[Indisponível]\n");
 
-            helpEmbedContent.AppendLine($"**[ Site do BOT ]**");
-            helpEmbedContent.AppendLine($"[Indisponível]\n");
+            helpEmbedContent.AppendFormat("\n{0} • **[ Site do BOT ]** • {0}\n", HelpEmojisDictionary["Site"]);
+            helpEmbedContent.AppendLine("[Indisponível]\n");
 
-            helpEmbedContent.AppendLine($"**[ F.A.Q do BOT ]**");
-            helpEmbedContent.AppendLine($"[Indisponível]\n");
+            helpEmbedContent.AppendFormat("\n{0} • **[ F.A.Q do BOT ]** • {0}\n", HelpEmojisDictionary["FAQ"]);
+            helpEmbedContent.AppendLine("[Indisponível]\n");
 
-            helpEmbedContent.AppendLine($"**[ Servidor de Suporte ]**");
-            helpEmbedContent.AppendLine($"[Indisponível]\n");
+            helpEmbedContent.AppendFormat("\n{0} • **[ Servidor de Suporte ]** • {0}\n", HelpEmojisDictionary["Support"]);
+            helpEmbedContent.AppendLine("[Indisponível]\n");
 
-            helpEmbedContent.AppendLine($"**[ Diretrizes da comunidade ]**");
-            helpEmbedContent.AppendLine($"[Indisponível]\n");
-
-            //Categorys
-            //List<CategoriesItems> commandsCategorys = new();
-            //foreach (Type assemblyType in currentAssembly.DefinedTypes)
-            //{
-            //    CategoryAttribute? categoryAttribute = assemblyType.GetCustomAttribute<CategoryAttribute>();
-            //    if (categoryAttribute == null) continue;
-
-            //    CategoriesItems? result = commandsCategorys.Find(x => x.Name == categoryAttribute.Name);
-            //    if(result?.Name == null)
-            //    {
-            //        commandsCategorys.Add(new(categoryAttribute.Name, assemblyType));
-            //        continue;
-            //    }
-
-            //    result.AddCommands();
-            //}
-
-            //foreach (CategoriesItems category in commandsCategorys)
-            //{
-            //    helpEmbedContent.AppendLine($"• {category.Name} ({category.CommandsCount})");
-            //}
+            helpEmbedContent.AppendFormat("\n{0} • **[ Diretrizes da comunidade ]** • {0}\n", HelpEmojisDictionary["Guildelines"]);
+            helpEmbedContent.AppendLine("[Indisponível]\n");
 
             //Embed
             DiscordEmbedBuilder helpEmbed = new()
@@ -78,9 +79,24 @@ namespace StarArisingBot.Core.Commands
                 Color = DiscordColor.Purple,
             };
 
-            await ctx.RespondAsync(helpEmbed);
+            DiscordMessageBuilder helpMessageBuilder = new();
+            helpMessageBuilder.AddEmbed(helpEmbed);
+            helpMessageBuilder.AddComponents(new DiscordComponent[] {
+                new DiscordLinkButtonComponent("https://google.com/", "Comandos", true, new(HelpEmojisDictionary["Commands"])),
+                new DiscordLinkButtonComponent("https://google.com/", "Site do Bot", true, new(HelpEmojisDictionary["Site"])),
+                new DiscordLinkButtonComponent("https://google.com/", "F.A.Q do Bot", true, new(HelpEmojisDictionary["FAQ"])),
+            });
+
+            helpMessageBuilder.AddComponents(new DiscordComponent[] {
+                new DiscordLinkButtonComponent("https://google.com/", "Servidor de Suporte", true, new(HelpEmojisDictionary["Support"])),
+                new DiscordLinkButtonComponent("https://google.com/", "Diretrizes da comunidade", true, new(HelpEmojisDictionary["Guildelines"])),
+            });
+
+            await mainMessage.ModifyAsync(helpMessageBuilder);
         }
 
+        //================================//
+        //Members
         private class CategoriesItems
         {
             public string Name { get; set; }
