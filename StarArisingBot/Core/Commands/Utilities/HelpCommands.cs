@@ -54,20 +54,20 @@ namespace StarArisingBot.Core.Commands
             helpEmbedContent.AppendLine("**➤ Sou um bot Brasileiro em desenvolvimento, muito divertido e com varios comandos para te entreter!**");
             helpEmbedContent.AppendLine($"\n**:star: • Precisando de ajuda {Context.User.Username}? Aqui está um Roadmap para auxiliar você nas minhas funções! • :star:**\n");
 
-            helpEmbedContent.AppendFormat("\n{0} • **[ Lista de Comandos ]** • {0}\n", HelpEmojisDictionary["Commands"]);
-            helpEmbedContent.AppendLine("[Indisponível]\n");
+            helpEmbedContent.AppendFormat("{0} • **[ Lista de Comandos ]** • {0}\n", HelpEmojisDictionary["Commands"]);
+            helpEmbedContent.AppendLine("[Indisponível]");
 
             helpEmbedContent.AppendFormat("\n{0} • **[ Site do BOT ]** • {0}\n", HelpEmojisDictionary["Site"]);
-            helpEmbedContent.AppendLine("[Indisponível]\n");
+            helpEmbedContent.AppendLine("[Indisponível]");
 
             helpEmbedContent.AppendFormat("\n{0} • **[ F.A.Q do BOT ]** • {0}\n", HelpEmojisDictionary["FAQ"]);
-            helpEmbedContent.AppendLine("[Indisponível]\n");
+            helpEmbedContent.AppendLine("[Indisponível]");
 
             helpEmbedContent.AppendFormat("\n{0} • **[ Servidor de Suporte ]** • {0}\n", HelpEmojisDictionary["Support"]);
-            helpEmbedContent.AppendLine("[Indisponível]\n");
+            helpEmbedContent.AppendLine("[Indisponível]");
 
             helpEmbedContent.AppendFormat("\n{0} • **[ Diretrizes da comunidade ]** • {0}\n", HelpEmojisDictionary["Guildelines"]);
-            helpEmbedContent.AppendLine("[Indisponível]\n");
+            helpEmbedContent.AppendLine("[Indisponível]");
 
             //Embed
             DiscordEmbedBuilder helpEmbed = new()
